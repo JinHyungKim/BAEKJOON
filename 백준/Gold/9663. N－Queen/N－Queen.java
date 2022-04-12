@@ -20,8 +20,10 @@ public class Main{
 	}
 	
 	private static void N_Queen(int cdx) {
-		if(cdx==N)
+		if(cdx==N) {
 			cnt++;
+			return;
+		}
 		
 		for(int i=0;i<N;i++) {
 			if(promising(i, cdx)) {
@@ -33,9 +35,7 @@ public class Main{
 
 	private static boolean promising(int chk, int cdx) {
 		for(int i=0;i<cdx;i++) {
-			if(board[i]==chk)
-				return false;
-			if(Math.abs(i-cdx)==Math.abs(chk-board[i]))
+			if(board[i]==chk||Math.abs(i-cdx)==Math.abs(chk-board[i]))
 				return false;
 		}
 		return true;
